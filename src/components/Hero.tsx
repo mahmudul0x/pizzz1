@@ -66,7 +66,7 @@ export function Hero() {
 
       <Embers count={30} />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-24 md:justify-center md:pb-0">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={i}
@@ -74,7 +74,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="max-w-3xl"
+            className="max-w-3xl text-center"
           >
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 backdrop-blur">
               <Flame className="h-3.5 w-3.5 text-secondary" />
@@ -87,9 +87,9 @@ export function Hero() {
               <br />
               <span className="text-gradient-flame">{s.title[1]}</span>
             </h1>
-            <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-xl">{s.sub}</p>
+            <p className="mt-5 max-w-xl text-base text-center text-muted-foreground md:text-xl">{s.sub}</p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 to={s.cta1.to}
                 className="group inline-flex items-center gap-2 rounded-full bg-gradient-flame px-7 py-3.5 font-display text-sm uppercase tracking-widest text-primary-foreground shadow-flame transition hover:scale-105"
