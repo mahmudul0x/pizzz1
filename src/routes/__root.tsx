@@ -4,11 +4,11 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { FloatingCTA } from "@/components/FloatingCTA";
+import { OffersPopup } from "@/components/OffersPopup";
 
 function NotFoundComponent() {
   return (
@@ -68,55 +68,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pizz & Burg | Best Pizza & Burger Restaurant in Bangladesh" },
-      { name: "description", content: "Cinematic burgers, wood-fired pizza & premium dining at Pizz & Burg — branches in Dinajpur, Bogura & Rangpur." },
-      { name: "author", content: "Pizz & Burg" },
-      { property: "og:title", content: "Pizz & Burg | Premium Burgers & Pizza" },
-      { property: "og:description", content: "Cooked with heart. Served with soul. Bangladesh's most cinematic burger & pizza experience." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "/favicon.svg",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { FloatingCTA } from "@/components/FloatingCTA";
-import { OffersPopup } from "@/components/OffersPopup";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
